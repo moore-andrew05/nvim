@@ -2,6 +2,7 @@ vim.opt.guicursor = "n-c-v:block-nCursor"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.mouse = "a"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

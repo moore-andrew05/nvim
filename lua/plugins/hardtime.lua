@@ -6,6 +6,7 @@ return {
         disabled_keys = {
             ["<Up>"] = false,
             ["<Down>"] = false
-    }
+        },
+        disable_mouse = false
     }
 }

@@ -7,6 +7,7 @@ return {
                 layout_config = {
                     horizontal = {
                         preview_cutoff = 0,
+                        preview_width = 0.5
                     },
                 },
             },
