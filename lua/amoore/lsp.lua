@@ -1,15 +1,18 @@
 vim.lsp.config('*', {
-    capabilities = {
-        textDocument = {
-            semanticTokens = {
-                multilineTokenSupport = true,
-            }
-        }
+  capabilities = {
+    textDocument = {
+      semanticTokens = {
+        multilineTokenSupport = true,
+      },
+      completion = {
+        completionItem = {
+          snippetSupport = true, 
+        },
+      },
     },
-    root_markers = { '.git' },
+  },
+  root_markers = { '.git' },
 })
 
-vim.lsp.config('pyright', {
-    filetypes = { 'python' },
-})
-
+require("lsp.pylsp")
+require("lsp.pyright")
