@@ -16,7 +16,7 @@ return {
 		appearance = {
 			nerd_font_variant = "mono",
 		},
-		completion = { documentation = { auto_show = false }, menu = { auto_show_delay_ms = 500 } },
+		completion = { documentation = { auto_show = false }, menu = { auto_show_delay_ms = 50 } },
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
