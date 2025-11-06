@@ -16,3 +16,4 @@ vim.lsp.config('*', {
 
 require("lsp.pylsp")
 require("lsp.pyright")
+require("lsp.elixir")
