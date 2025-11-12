@@ -13,5 +13,20 @@ local rep = require("luasnip.extras").rep
 vim.keymap.set('n', '<Leader>L',
     '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets/"})<CR>')
 
-return {
-}
+-- Elixir regex snippet
+ls.add_snippets("elixir", {
+    s(
+        {
+            trig = "re",
+            desc = "Elixir regex literal",
+        },
+        {
+            t("~r/"),
+            i(1, "pattern"),
+            t("/"),
+            i(2, "opts"),
+        }
+    ),
+}, {
+    key = "elixir_regex_snippet",
+})
