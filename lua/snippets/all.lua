@@ -14,19 +14,75 @@ vim.keymap.set('n', '<Leader>L',
     '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets/"})<CR>')
 
 -- Elixir regex snippet
+ls.add_snippets("elixir",
+    {
+        s(
+            {
+                trig = "re",
+                desc = "Elixir regex literal",
+            },
+            {
+                t("~r/"),
+                i(1, "pattern"),
+                t("/"),
+                i(2, "opts"),
+            }
+        ),
+        s(
+            {
+                trig = "st",
+                desc = "Elixir struct with @enforce_keys",
+            },
+            fmt([[
+        defmodule {} do
+          @enforce_keys [{}]
+          defstruct [
+            {}
+          ]
+        end
+        ]], {
+                i(1, "ModuleName"),
+                i(2, ":required1, :required2"),
+                i(3, "optional1: nil, optional2: nil"),
+            })
+        ),
+    }, {
+        key = "elixir_snippets",
+    })
+
 ls.add_snippets("elixir", {
     s(
         {
-            trig = "re",
-            desc = "Elixir regex literal",
+            trig = "aoc(%d%d)",
+            regTrig = true,
+            desc = "AOC year/day module from trigger (e.g. aoc11)",
         },
-        {
-            t("~r/"),
-            i(1, "pattern"),
-            t("/"),
-            i(2, "opts"),
-        }
+        fmt([[
+        defmodule Aoc{}.Day{} do
+          defp input do
+            String.trim(File.read!("priv/inputs/day{}.txt"))
+          end
+
+          def part1(), do: part1(input())
+
+          def part1(input) do
+          end
+
+          def part2(), do: part2(input())
+
+          def part2(input) do
+          end
+        end
+        ]], {
+            i(1, "2016"),           -- Year
+            f(function(_, snip)      -- Day from trigger
+                return snip.captures[1]
+            end, {}),
+            f(function(_, snip)      -- Filename day
+                return snip.captures[1]
+            end, {}),
+        })
     ),
 }, {
-    key = "elixir_regex_snippet",
+    key = "aoc_day_triggered",
 })
