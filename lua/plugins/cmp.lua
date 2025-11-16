@@ -8,6 +8,8 @@ return {
 	opts = {
 		keymap = {
 			preset = "default",
+			["<Tab>"] = { "fallback" }, -- <--- prevents Blink from hijacking Tab
+			["<S-Tab>"] = { "fallback" },
 			["<C-g>"] = { "show_documentation", "hide_documentation" },
 			["<C-u>"] = { "scroll_documentation_up", "fallback" },
 			["<C-d>"] = { "scroll_documentation_down", "fallback" },
