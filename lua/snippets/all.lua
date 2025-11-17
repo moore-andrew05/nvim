@@ -46,6 +46,24 @@ ls.add_snippets("elixir",
                 i(3, "optional1: nil, optional2: nil"),
             })
         ),
+        s(
+            {
+                trig = "stf",
+                desc = "Struct that duplicates field list for enforce_keys + defstruct",
+            },
+            fmt([[
+  defmodule {} do
+    @enforce_keys [{}]
+    defstruct [{}]
+  end
+  ]], {
+                i(1, "ModuleName"),
+                i(2, ":field1, :field2"),
+                d(3, function(args)
+                    return ls.snippet_node(nil, i(1, args[1][1]))
+                end, { 2 }),
+            })
+        )
     }, {
         key = "elixir_snippets",
     })
@@ -74,11 +92,11 @@ ls.add_snippets("elixir", {
           end
         end
         ]], {
-            i(1, "2016"),           -- Year
-            f(function(_, snip)      -- Day from trigger
+            i(1, "2016"),       -- Year
+            f(function(_, snip) -- Day from trigger
                 return snip.captures[1]
             end, {}),
-            f(function(_, snip)      -- Filename day
+            f(function(_, snip) -- Filename day
                 return snip.captures[1]
             end, {}),
         })
