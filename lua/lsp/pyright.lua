@@ -13,6 +13,7 @@ vim.lsp.config('pyright', {
   on_attach = function(client)
     -- disable completion provider
     client.server_capabilities.completionProvider = nil
+    client.server_capabilities.definitionProvider = false
   end,
 })
 

@@ -56,9 +56,8 @@ vim.keymap.set("n", "<leader>oj", function()
 end)
 
 vim.keymap.set('n', 'gd', function()
-  vim.cmd('vsplit')
   vim.lsp.buf.definition()
-end, { desc = 'Goto Definition in Vertical Split' })
+end, { desc = 'Goto Definition' })
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "json",
