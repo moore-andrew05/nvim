@@ -71,6 +71,44 @@ ls.add_snippets("elixir",
 ls.add_snippets("elixir", {
     s(
         {
+            trig = "aoct(%d%d)",
+            regTrig = true,
+            desc = "AOC year/day test module from trigger (e.g. aoc11)",
+        },
+        fmt([[
+        defmodule Aoc{}.Day{}Test do
+          use ExUnit.Case
+          alias Aoc{}.Day{}
+
+          describe "part1/1" do
+            test "{}" do
+            end
+          end
+
+          describe "part2/1" do
+            test "{}" do
+            end
+          end
+        end
+        ]], {
+            i(1, "2016"),       -- Year
+            f(function(_, snip) -- Day from trigger
+                return snip.captures[1]
+            end, {}),
+            i(2, "2016"),
+            f(function(_, snip) -- Day from trigger
+                return snip.captures[1]
+            end, {}),
+            i(3, "part1 description"),
+            i(4, "part2 description"),
+        })
+    ),
+}, {
+    key = "aoc_day_test_triggered",
+})
+ls.add_snippets("elixir", {
+    s(
+        {
             trig = "aoc(%d%d)",
             regTrig = true,
             desc = "AOC year/day module from trigger (e.g. aoc11)",
