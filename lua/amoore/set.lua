@@ -34,6 +34,9 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- Timeout is kinda long for chords.
+vim.opt.timeoutlen = 350
+
 vim.api.nvim_create_autocmd("BufReadPost", {
     pattern = {"*"},
     callback = function()

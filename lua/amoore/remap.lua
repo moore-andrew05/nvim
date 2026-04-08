@@ -13,13 +13,6 @@ vim.keymap.set("n", "=ap", "ma=ap'a")
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 vim.keymap.set("n", "<leader>w", "T vt ")
 
-vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
-end)
-
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
@@ -56,13 +49,5 @@ vim.keymap.set("n", "<leader>oj", function()
 end)
 
 vim.keymap.set('n', 'gd', function()
-  vim.lsp.buf.definition()
+    vim.lsp.buf.definition()
 end, { desc = 'Goto Definition' })
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "json",
-    callback = function()
-        vim.bo.formatprg = "jq"
-    end,
-})
-

@@ -5,7 +5,7 @@ local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("python", {
-  s({ trig = "gd", desc = "Google-style docstring" }, fmt([["""
+  s({ trig = "dgd", desc = "Google-style docstring" }, fmt([["""
 {}
 
 Args:
