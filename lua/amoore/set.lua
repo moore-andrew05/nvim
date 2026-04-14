@@ -38,7 +38,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.timeoutlen = 350
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
+    pattern = {"markdown", "tex"},
     callback = function()
         vim.opt_local.wrap = true
     end
